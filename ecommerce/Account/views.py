@@ -8,8 +8,8 @@ from Account.serializers import UserRegistrationSerializer
 
 class UserRegistrationView(APIView):
     def post(self,request,format=None):
-        print(request.data)
         serializer=UserRegistrationSerializer(data=request.data)
+        print(serializer.is_valid())
         if serializer.is_valid(raise_exception=True):
             user=serializer.save()
             return Response({"msg":"Registration Sucessful"},status=status.HTTP_201_CREATED)

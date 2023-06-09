@@ -13,12 +13,11 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
 
     #Validating password and confirm password while Registrations
-
     def validate(self, attrs):
         password=attrs.get("password")
         password2=attrs.get("password2")
         if password != password2:
-            raise serializers.ValidationError("Password  and confirm password Does't match ")
+            raise serializers.ValidationError("Password and confirm password Does't match ")
         return attrs
 
     def create(self, validated_data):

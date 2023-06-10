@@ -166,6 +166,13 @@ REST_FRAMEWORK = {
     ],
 }
 
+PASSWORD_RESET_TIMEOUT=900
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'your-smtp-host'  # Replace with your SMTP host
+EMAIL_PORT =""  # Replace with your SMTP port
+EMAIL_HOST_USER = 'your-email@example.com'  # Replace with your SMTP username or email
+EMAIL_HOST_PASSWORD = 'your-email-password'  # Replace with your SMTP password
+EMAIL_USE_TLS = True  # Set to True if your SMTP server requires TLS
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),

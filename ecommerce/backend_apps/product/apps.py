@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AddressConfig(AppConfig):
+class ProductConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'backend_apps.address'
+    name = 'backend_apps.product'

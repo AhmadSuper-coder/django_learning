@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'Account',
     "rest_framework_simplejwt",
     "corsheaders",
+    "backend_apps.address",
+    "backend_apps.product",
+    "backend_apps.shopingcart",
+    "backend_apps.order"
 
 ]
 

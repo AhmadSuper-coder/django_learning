@@ -1,0 +1,24 @@
+
+      ********************************************** All about Jwt *****************************************
+
+ 
+ the user will not need to provide their credentials (email and password) every time they want to access protected resources in the API. Instead, the API relies on JSON Web Tokens (JWTs) for authentication. When a user logs in or registers, the API generates two types of tokens: an access token and a refresh token.
+
+Access Token:
+
+The access token has a relatively short expiration time (e.g., 15 minutes) and is used to authenticate API requests when accessing protected resources.
+After successful login or registration, the API sends the access token to the client (usually in the response) as part of the authentication process.
+The client (e.g., a web application or mobile app) will store this access token locally (e.g., in a cookie or local storage) and include it in the headers of API requests that require authentication.
+The access token is sent with each request, allowing the server to verify the user's identity and grant access to the protected resources.
+Refresh Token:
+
+The refresh token has a longer expiration time (e.g., 7 days) compared to the access token.
+After successful login or registration, the API also sends the refresh token to the client (usually in the response) as part of the authentication process.
+The client should securely store this refresh token locally (e.g., in an HTTP-only cookie or secure storage) and avoid exposing it to client-side JavaScript to mitigate security risks.
+When the access token expires (after 15 minutes, for example), the client can use the refresh token to obtain a new access token without requiring the user to log in again.
+The client will send a request to a specific endpoint in the API, passing the refresh token. The API server will verify the refresh token's validity and generate a new access token if the refresh token is still valid.
+This process allows users to stay authenticated and access protected resources without having to re-enter their credentials every time their access token expires.
+Regarding the code saving the token in the database:
+In the provided code, the tokens (access token and refresh token) are not saved in the database. Instead, JSON Web Tokens (JWTs) are generated on-the-fly and sent directly to the client as part of the response when the user logs in or registers.
+
+The API server signs the tokens using a secret key, and the client stores the tokens locally. The server does not need to save or maintain the state of the tokens on the server-side since JWTs are self-contained and contain all the necessary information for authentication.

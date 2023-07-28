@@ -9,13 +9,13 @@ from django.contrib.auth import authenticate
 
 # Create your views here.
 
-
+# Helper function to generate tokens for a user
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
 
     return {
-        'refresh': str(refresh),
-        'access': str(refresh.access_token),
+        'refresh': str(refresh),    # Refresh token is used to get a new access token after it expires
+        'access': str(refresh.access_token),   # Access token is used to authenticate API requests
     }
 
 
@@ -25,6 +25,7 @@ class UserRegistrationView(APIView):
         print(serializer.is_valid())
         if serializer.is_valid(raise_exception=True):
             user=serializer.save()
+            # Generate tokens for the newly registered user
             token=get_tokens_for_user(user)
             return Response({"token":token,"msg":"Registration Sucessful"},status=status.HTTP_201_CREATED)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
@@ -38,6 +39,7 @@ class UserLoginView(APIView):
             password=serializers.data.get("password")
             user=authenticate(email=email,password=password)
             if user is not None:
+                 # Generate tokens for the authenticated user
                 token=get_tokens_for_user(user)
                 return Response({"token":token,"msg":"Login Success"},status=status.HTTP_200_OK)
             else:

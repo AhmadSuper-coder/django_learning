@@ -4,6 +4,8 @@ from django.utils.encoding import smart_str,force_bytes,DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
+
+# here model serializers means we can inherit the field from Model class 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password2=serializers.CharField(style={"input_type":"password"},write_only=True)
     class Meta:
@@ -14,7 +16,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         }
 
 
-    #Validating password and confirm password while Registrations
+    #Validating password and confirm password while Registrations, we are overiding the is_validate function here
     def validate(self, attrs):
         password=attrs.get("password")
         password2=attrs.get("password2")
@@ -22,11 +24,13 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Password and confirm password Does't match ")
         return attrs
 
+    #here in validated data it contains User model all field, and create_user is custome method of the User objects manager in same way you do for the super user also
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
 
 
 class UserLoginSerializer(serializers.ModelSerializer):
+    # explicitly we are validating the email to make sure that email is in correct format 
     email=serializers.EmailField(max_length=255)
     class Meta:
         model=User

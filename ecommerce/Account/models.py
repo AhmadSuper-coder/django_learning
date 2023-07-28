@@ -41,9 +41,6 @@ class UserManager(BaseUserManager):
 
 
 
-
-
-
 # created custome user  
 class User (AbstractBaseUser):
     email = models.EmailField(

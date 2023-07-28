@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'Account',
     "rest_framework_simplejwt",
     "corsheaders",
+    "backend_apps.address",
+    "backend_apps.product",
+    "backend_apps.shopingcart",
+    "backend_apps.order"
 
 ]
 
@@ -61,7 +65,7 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,6 +142,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -154,9 +163,20 @@ AUTH_USER_MODEL="Account.User"
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
 }
 
+PASSWORD_RESET_TIMEOUT=900
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'your-smtp-host'  # Replace with your SMTP host
+EMAIL_PORT =""  # Replace with your SMTP port
+EMAIL_HOST_USER = 'your-email@example.com'  # Replace with your SMTP username or email
+EMAIL_HOST_PASSWORD = 'your-email-password'  # Replace with your SMTP password
+EMAIL_USE_TLS = True  # Set to True if your SMTP server requires TLS
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),

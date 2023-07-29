@@ -45,6 +45,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class UserChangePasswordSerializer(serializers.ModelSerializer):
+    # Validated both password 
     password=serializers.CharField(max_length=255,style={"input_type":"password"},write_only=True)
     password2=serializers.CharField(max_length=255,style={"input_type":"password"},write_only=True)
 

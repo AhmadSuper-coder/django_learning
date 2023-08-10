@@ -1,0 +1,3 @@
+hostname_of_cloud_server=     ahmad.eshopper.com
+
+password== Sonu@001912

@@ -1,0 +1,40 @@
+# rabbitmqctl  this is the cli for rabbitmqtt
+
+#to get the help about rabbitmqtt cli 
+sudo rabbitmqctl
+
+# create user 
+rabbitmqctl add_user <username> <password>
+
+#give the administrator privelleg to user 
+sudo rabbitmqctl set_user_tags ahmad administrator
+
+# change the created user passowrd
+rabbitmqctl change_password <username> <new_password>
+
+# delete the user 
+rabbitmqctl delete_user <username>
+
+# get the list of users
+sudo rabbitmqctl list_users
+
+# to create new v_host 
+rabbitmqctl add_vhost <vhost_name>
+
+# to delete the vshost
+sudo rabbitmqctl delete_vhost <vhost_name>
+
+
+# grant permission to particular for particular host 
+sudo rabbitmqctl set_permissions -p <vhost_name> <username> ".*" ".*" ".*"
+
+# get the list of vhost 
+rabbitmqctl list_vhosts
+
+
+
+# restart teh rabbitmqtt
+sudo systemctl restart rabbitmq-server
+
+# to check the status of rabbitmqtt
+sudo systemctl status rabbitmq-server

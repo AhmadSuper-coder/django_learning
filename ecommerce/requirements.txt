@@ -1,24 +1,41 @@
+<<<<<<< Updated upstream
 amqp==5.1.1
 anyjson==0.3.3
 asgiref==3.4.1
 billiard==3.6.4.0
 cached-property==1.5.2
 celery==5.1.2
+=======
+amqp==1.4.9
+anyjson==0.3.3
+asgiref==3.4.1
+billiard==3.3.0.23
+cached-property==1.5.2
+celery==3.1.26.post2
+>>>>>>> Stashed changes
 click==7.1.2
 click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.3.0
 Django==3.2.20
 django-celery==3.3.1
+<<<<<<< Updated upstream
 django-celery-beat==2.2.1
 django-celery-results==2.2.0
 django-cors-headers==3.10.1
 django-timezone-field==4.2.3
+=======
+django-cors-headers==3.10.1
+>>>>>>> Stashed changes
 djangorestframework==3.14.0
 djangorestframework-simplejwt==4.4.0
 gunicorn==21.2.0
 importlib-metadata==4.8.3
+<<<<<<< Updated upstream
 kombu==5.1.0
+=======
+kombu==3.0.37
+>>>>>>> Stashed changes
 packaging==21.3
 Pillow==8.4.0
 prompt-toolkit==3.0.36
@@ -26,7 +43,10 @@ psycopg2==2.9.7
 psycopg2-binary==2.9.7
 PyJWT==2.4.0
 pyparsing==3.1.1
+<<<<<<< Updated upstream
 python-crontab==3.0.0
+=======
+>>>>>>> Stashed changes
 python-dateutil==2.8.2
 pytz==2023.3
 six==1.16.0

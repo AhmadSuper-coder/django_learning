@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     "backend_apps.address",
     "backend_apps.product",
     "backend_apps.shopingcart",
-    "backend_apps.order"
+    "backend_apps.order",
+    'django_celery_results'
 
 ]
 
@@ -104,6 +105,11 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+
+# CELERY_BROKER_URL="amqp://ahmad:sonu001912@ahmad/ecomm"
+CELERY_BROKER_URL='amqp://ahmad:sonu001912@localhost:5672/ecomm'
+# CELERY_BACKEND_URL = 'db+postgresql://ahmad:1234@localhost/myecommerce_website_db'
 
 
 # Password validation

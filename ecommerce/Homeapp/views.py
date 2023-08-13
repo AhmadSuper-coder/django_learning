@@ -21,3 +21,9 @@ def checkout_view(request):
 
 def contact_view(request):
     return render(request, 'contact.html')
+
+def login_view(request):
+    return render(request, 'loing.html')
+
+def register_veiw(request):
+    return render(request,"register.html")

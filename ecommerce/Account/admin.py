@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User
+from .models import User,UserReview
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
 
@@ -31,5 +31,15 @@ class UserModelAdmin(BaseUserAdmin):
     filter_horizontal = []
 
 
+class UserReviewAdmin(admin.ModelAdmin):
+    list_display = ('user', 'product', 'rating', 'comment', 'created_at')
+    list_filter = ('product', 'rating', 'created_at')
+    search_fields = ('user__username', 'product__name')
+
+
+
+
 # Now register the new UserAdmin...
 admin.site.register(User, UserModelAdmin)
+admin.site.register(UserReview, UserReviewAdmin)
+

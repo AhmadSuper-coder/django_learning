@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-
+from backend_apps.product.models import Product
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils import timezone
 # Create your models here.
 
 
@@ -78,3 +80,22 @@ class User (AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+    
+
+
+
+
+class UserReview(models.Model):
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    rating = models.PositiveIntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
+    )
+    comment = models.TextField()  # Change the field name to 'comment'
+    created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        unique_together = ('user', 'product')
+
+    def __str__(self):
+        return f"Review by {self.user.username} for {self.product.name}"

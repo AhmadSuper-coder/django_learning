@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     "backend_apps.address",
     "backend_apps.product",
     "backend_apps.shopingcart",
-    "backend_apps.order"
-
+    "backend_apps.order",
+    "backend_apps.Payment"
 ]
 
 MIDDLEWARE = [

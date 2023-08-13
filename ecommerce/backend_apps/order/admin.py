@@ -1,7 +1,9 @@
 from django.contrib import admin
-
+from .models import ShippingMethod, OrderStatus,ShopOrder,OrderLine
 # Register your models here.
-from .models import ShippingMethod, OrderStatus
+
 
 admin.site.register(ShippingMethod)
 admin.site.register(OrderStatus)
+admin.site.register(ShopOrder)
+admin.site.register(OrderLine)

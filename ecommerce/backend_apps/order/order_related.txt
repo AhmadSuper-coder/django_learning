@@ -1,0 +1,54 @@
+Shipping Methods:
+
+Standard Shipping:
+Description: Choose our Standard Shipping option for an economical and reliable delivery method. Your order will be carefully processed and dispatched within a reasonable timeframe, ensuring your items reach you securely. While it might take a bit longer than some other options, Standard Shipping is perfect for those who want a cost-effective way to receive their products.
+
+Expedited Shipping:
+Description: When time is of the essence, our Expedited Shipping is your go-to choice. With this swift and efficient delivery option, your order moves to the front of the queue, guaranteeing a quicker processing time and prompt dispatch. Whether it's a last-minute gift or a must-have item, Expedited Shipping ensures that your products arrive at your doorstep sooner.
+
+Next-Day Delivery:
+Description: Experience the convenience of Next-Day Delivery, where your order is prioritized for lightning-fast shipping. With this premium service, you can expect your products to arrive within a single business day after placing your order. Ideal for urgent needs or time-sensitive situations, Next-Day Delivery ensures that your purchase is in your hands without delay.
+
+International Shipping:
+Description: Our International Shipping option is designed to cater to customers beyond our borders. Whether you're halfway across the world or just across the border, this service ensures that your order reaches you, no matter where you are. With careful packaging and efficient handling, our International Shipping lets you enjoy our products no matter your location.
+
+Free Shipping:
+Description: Take advantage of our Free Shipping option for a budget-friendly way to receive your chosen products. Orders that meet the specified criteria qualify for this no-cost delivery method, allowing you to enjoy your shopping without the additional shipping fees. It's our way of showing appreciation for your purchase.
+
+Curbside Pickup:
+Description: Curbside Pickup provides a convenient and contactless way to receive your order. Simply place your order online and select the Curbside Pickup option during checkout. Once your order is ready, we'll notify you, and you can drive up to our designated pickup location. Our staff will bring your items to your vehicle, ensuring a seamless and safe experience.
+
+Local Delivery:
+Description: Experience the ease of Local Delivery, a service tailored to customers within a specific radius of our store. With Local Delivery, you can enjoy the convenience of having your order brought directly to your doorstep. Perfect for those who prefer a personal touch, this option ensures that you receive your items without leaving your home.
+
+Express Shipping:
+Description: Need your products as quickly as possible? Our Express Shipping option is here to meet your needs. With an emphasis on speed and efficiency, Express Shipping guarantees that your order is processed and dispatched without delay. This service is perfect for urgent orders that require swift delivery.
+
+Priority Shipping:
+Description: Elevate your shipping experience with Priority Shipping. As our top-tier shipping option, Priority Shipping ensures that your order is treated with the utmost care and attention. Your items are processed promptly, and special handling is applied to ensure their safe journey to your destination. Choose Priority Shipping for a premium and reliable delivery experience.
+
+Same-Day Delivery:
+Description: Get what you need when you need it with our Same-Day Delivery service. Place your order before the specified cutoff time, and we'll ensure that your items are delivered to your doorstep on the very same day. This lightning-fast option is perfect for those moments when time is of the essence.
+
+Order Statuses:
+
+Pending:
+Description: Your order is currently in the initial processing stage. We've received your request and are preparing to fulfill it. While in this status, your items are being gathered, and we're making sure everything is in place for a smooth delivery.
+
+Processing:
+Description: Your order is now being actively processed and prepared for shipping. Our team is carefully selecting your items, conducting quality checks, and packaging them securely to ensure they arrive in perfect condition.
+
+Shipped:
+Description: Exciting news! Your order has been shipped and is on its way to you. We've carefully packed your items and handed them over to our trusted shipping partner to deliver them to your designated address.
+
+Out for Delivery:
+Description: Your order is currently out for delivery and on its way to your doorstep. Our dedicated delivery team is working diligently to bring your items to you as quickly as possible. You can expect your order to arrive soon.
+
+Delivered:
+Description: Congratulations, your order has been successfully delivered! You should now have your items in hand and can start enjoying them. If you have any concerns or questions about your delivered order, please don't hesitate to contact our customer support.
+
+Cancelled:
+Description: Your order has been cancelled, either by your request or due to specific circumstances. If you have any questions about the cancellation or wish to reorder, please reach out to our customer service team for assistance.
+
+On Hold:
+Description: Your order is currently on hold for a specific reason. This status indicates that there might be a temporary delay or issue that requires attention.

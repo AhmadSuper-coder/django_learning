@@ -16,7 +16,7 @@ class ShippingMethod(models.Model):
 class OrderStatus(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    # Add more fields as per your requirements
+    # Add more fields as per your requirement
 
     def __str__(self):
         return self.name

@@ -49,6 +49,23 @@ class UserLoginView(APIView):
             print("NOt vable to ")
 
 
+class UserLogoutView(APIView):
+    # permission_classes = (IsAuthenticated,)
+
+    def post(self, request,format=None):
+        try:
+            print("warking")
+            refresh_token = request.data["refresh_token"]
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            print('Added checkout')
+            print("hellow ti sis how to find t")
+            print(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^6666")
+            return Response(status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
 class userProfileView(APIView):
     permission_classes=[IsAuthenticated]
     def get(self,request,format=None):

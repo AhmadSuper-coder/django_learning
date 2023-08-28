@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     "backend_apps.product",
     "backend_apps.shopingcart",
     "backend_apps.order",
-    "backend_apps.Payment"
+    "backend_apps.Payment",
+    "rest_framework_simplejwt.token_blacklist"
+
 ]
 
 MIDDLEWARE = [

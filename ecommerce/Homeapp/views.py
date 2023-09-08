@@ -28,7 +28,3 @@ def login_view(request):
 def register_veiw(request):
     return render(request,"register.html")
 
-
-def user_profile_view(request):
-    permission_classes = (IsAuthenticated,)
-    return render(request,"user_profile.html")

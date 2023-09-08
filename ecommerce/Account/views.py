@@ -27,7 +27,9 @@ class UserRegistrationView(APIView):
             user=serializer.save()
             # Generate tokens for the newly registered user
             token=get_tokens_for_user(user)
-            return Response({"token":token,"msg":"Registration Sucessful"},status=status.HTTP_201_CREATED)
+            response=Response({"token":token,"msg":"Registration Sucessful"},status=status.HTTP_201_CREATED)
+            response.set_cookie('auth_token', token, httponly=True)
+            return response
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -38,10 +40,13 @@ class UserLoginView(APIView):
             email= serializers.data.get("email")
             password=serializers.data.get("password")
             user=authenticate(email=email,password=password)
+            print(user.is_authenticated)
             if user is not None:
                  # Generate tokens for the authenticated user
                 token=get_tokens_for_user(user)
-                return Response({"token":token,"msg":"Login Success"},status=status.HTTP_200_OK)
+                response= Response({"token":token,"msg":"Login Success"},status=status.HTTP_200_OK)
+                response.set_cookie('auth_token', token, httponly=True)
+                return response
             else:
                 return Response({"errors":{"non-field error":["Email or Password is invalid"]}},status=status.HTTP_404_NOT_FOUND)
             
@@ -50,11 +55,10 @@ class UserLoginView(APIView):
 
 
 class UserLogoutView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request,format=None):
         try:
-            print("warking")
             refresh_token = request.data["refresh_token"]
             token = RefreshToken(refresh_token)
             token.blacklist()
@@ -69,8 +73,11 @@ class UserLogoutView(APIView):
 class userProfileView(APIView):
     permission_classes=[IsAuthenticated]
     def get(self,request,format=None):
+        print(request.user)
         serializer=UserProfileSerializer(request.user)
-        return Response(serializer.data,status=status.HTTP_200_OK)
+        print("warking profile")
+        # return Response(serializer.data,status=status.HTTP_200_OK)
+        return render(request,"user_profile.html")
     
 
 class UserChangePasswordView(APIView):

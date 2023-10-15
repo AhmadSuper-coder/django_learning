@@ -77,8 +77,8 @@ class userProfileView(APIView):
         serializer=UserProfileSerializer(request.user)
         print("warking profile")
         # return Response(serializer.data,status=status.HTTP_200_OK)
-        return render(request,"user_profile.html")
-    
+        return Response({"msg": "you got the data"}, status=status.HTTP_200_OK)
+
 
 class UserChangePasswordView(APIView):
     permission_classes=[IsAuthenticated]

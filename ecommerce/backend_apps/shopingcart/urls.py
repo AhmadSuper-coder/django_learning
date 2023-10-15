@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from backend_apps.shopingcart import views
 
 
 urlpatterns = [
-  # path('/', views.register_veiw, name='cart'),
+  path('getcart/', views.CartDetails.as_view(), name='cart')
 
 ]

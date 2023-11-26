@@ -7,19 +7,17 @@ services:
       volumes:
         - postgres-db:/var/lib/postgresql/data
       environment:
-        - POSTGRES_DB=ecommerce
+        - POSTGRES_DB=psql -h localhost -p 5432 -U pz_database_user -d pz_db_test
         - POSTGRES_USER=ahmad
         - POSTGRES_PASSWORD=1234
       ports:
         - "5435:5435"
 
   app:
-    build:
-      context: .
+    image: ahmaddocker0019/django-sample-app
     ports:
       - "8000:8000"
-    volumes:
-      - ./app:/app
+
     command: >
       sh -c "python3 manage.py makemigrations &&
              python3 manage.py migrate &&

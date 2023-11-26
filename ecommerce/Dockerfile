@@ -1,19 +1,25 @@
-# Dockerfile
+FROM python:3.7-alpine
 
-# The first instruction is what image we want to base our container on
-# We Use an official Python runtime as a parent image
-FROM python:3.7
+ENV PYTHONUNBUFFERED 1
 
-# Allows docker to cache installed dependencies between builds
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apk add --update --no-cache postgresql-client jpeg-dev zlib zlib-dev build-base
+RUN apk add --update --no-cache --virtual .tmp-build-deps \
+    gcc libc-dev linux-headers postgresql-dev musl-dev
 
-# Mounts the application code to the image
-COPY . code
-WORKDIR /code
+RUN apk del .tmp-build-deps
 
-EXPOSE 8000
+RUN mkdir /ecommerce
 
-# runs the production server
-ENTRYPOINT ["python", "ecommerce/manage.py"]
-CMD ["runserver", "0.0.0.0:8000"]
+# Copy the current directory contents into the container at /ecommerce
+COPY . /ecommerce/
+
+
+# Create and set the working directorydocker-compose.yml
+WORKDIR /ecommerce
+
+# Install dependencies
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+
+
